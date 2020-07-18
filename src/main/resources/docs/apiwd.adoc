@@ -1,0 +1,377 @@
+= API文档
+
+
+[[_overview]]
+== 概览
+rest文档(简介)
+
+
+=== 版本信息
+[%hardbreaks]
+__版本__ : 1.0
+
+
+=== 许可信息
+[%hardbreaks]
+__服务条款__ : http://zinug.com
+
+
+=== URI scheme
+[%hardbreaks]
+__域名__ : localhost:8888
+__基础路径__ : /
+
+
+=== 标签
+
+* hello-controller : Hello Controller
+
+
+
+
+[[_paths]]
+== 路径
+
+[[_saveuserusingpost]]
+=== saveUser
+....
+POST /rest/user
+....
+
+
+==== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**userBean** +
+__必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
+|===
+
+
+==== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+==== 消耗
+
+* `application/json`
+
+
+==== 生成
+
+* `*/*`
+
+
+==== 标签
+
+* hello-controller
+
+
+==== HTTP请求示例
+
+===== 请求 path
+----
+/rest/user
+----
+
+
+===== 请求 body
+[source,json]
+----
+{
+  "age" : 0,
+  "id" : 0,
+  "name" : "string"
+}
+----
+
+
+==== HTTP响应示例
+
+===== 响应 200
+[source,json]
+----
+{
+  "code" : "200、400、500",
+  "data" : "object",
+  "message" : "string",
+  "success" : true
+}
+----
+
+
+[[_getuserusingget]]
+=== getUser
+....
+GET /rest/user
+....
+
+
+==== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Query**|**id** +
+__必填__|id|string
+|===
+
+
+==== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+==== 消耗
+
+* `application/json`
+
+
+==== 生成
+
+* `*/*`
+
+
+==== 标签
+
+* hello-controller
+
+
+==== HTTP请求示例
+
+===== 请求 path
+----
+/rest/user
+----
+
+
+===== 请求 query
+[source,json]
+----
+{
+  "id" : "string"
+}
+----
+
+
+==== HTTP响应示例
+
+===== 响应 200
+[source,json]
+----
+{
+  "code" : "200、400、500",
+  "data" : "object",
+  "message" : "string",
+  "success" : true
+}
+----
+
+
+[[_updatauserusingput]]
+=== upDataUser
+....
+PUT /rest/user
+....
+
+
+==== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Body**|**userBean** +
+__必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
+|===
+
+
+==== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
+|**201**|Created|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+==== 消耗
+
+* `application/json`
+
+
+==== 生成
+
+* `*/*`
+
+
+==== 标签
+
+* hello-controller
+
+
+==== HTTP请求示例
+
+===== 请求 path
+----
+/rest/user
+----
+
+
+===== 请求 body
+[source,json]
+----
+{
+  "age" : 0,
+  "id" : 0,
+  "name" : "string"
+}
+----
+
+
+==== HTTP响应示例
+
+===== 响应 200
+[source,json]
+----
+{
+  "code" : "200、400、500",
+  "data" : "object",
+  "message" : "string",
+  "success" : true
+}
+----
+
+
+[[_deleteuserusingdelete]]
+=== deleteUser
+....
+DELETE /rest/user/{id}
+....
+
+
+==== 参数
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|类型|名称|说明|类型
+|**Path**|**id** +
+__必填__|id|integer (int32)
+|===
+
+
+==== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
+|**204**|No Content|无内容
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|===
+
+
+==== 消耗
+
+* `application/json`
+
+
+==== 生成
+
+* `*/*`
+
+
+==== 标签
+
+* hello-controller
+
+
+==== HTTP请求示例
+
+===== 请求 path
+----
+/rest/user/0
+----
+
+
+==== HTTP响应示例
+
+===== 响应 200
+[source,json]
+----
+{
+  "code" : "200、400、500",
+  "data" : "object",
+  "message" : "string",
+  "success" : true
+}
+----
+
+
+
+
+[[_definitions]]
+== 定义
+
+[[_6e3541884d20e95ad039b9b3c894cac0]]
+=== 用户信息
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**age** +
+__可选__|用户年龄 +
+**样例** : `0`|integer (int32)
+|**id** +
+__可选__|用户id +
+**样例** : `0`|integer (int32)
+|**name** +
+__可选__|用户姓名 +
+**样例** : `"string"`|string
+|===
+
+
+[[_a589f2e472cc9e2be51b973b335789e4]]
+=== 网络请求返回类
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|名称|说明|类型
+|**code** +
+__可选__|请求响应状态码 +
+**样例** : `"200、400、500"`|integer (int32)
+|**data** +
+__可选__|请求结果数据 +
+**样例** : `"object"`|object
+|**message** +
+__可选__|请求结果描述信息 +
+**样例** : `"string"`|string
+|**success** +
+__可选__|**样例** : `true`|boolean
+|===
+
+
+
+
+
