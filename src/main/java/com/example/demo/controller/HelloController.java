@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.UserBean;
+import com.example.demo.generator.Article;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -11,26 +11,19 @@ public class HelloController {
 //    @RequestMapping(value = "/user/{id}",method = RequestMethod.GET)
     @GetMapping("/user")
     public AjaxResponse getUser(@RequestParam String id){
-        Integer integer = Integer.valueOf(id);
-        UserBean zs = UserBean
-                .builder()
-                .id(integer)
-                .age(12)
-                .name("zs")
-                .build();
-        return AjaxResponse.success(zs);
+        return AjaxResponse.success(null);
     }
     //新增
     //@RequestMapping(value = "/user",method = RequestMethod.POST)
     @PostMapping("/user")
-    public AjaxResponse saveUser(@RequestBody UserBean userBean){
+    public AjaxResponse saveUser(@RequestBody Article userBean){
         return AjaxResponse.success();
     }
 
     //修改
     //@RequestMapping(value = "/user",method = RequestMethod.PUT)
     @PutMapping("/user")
-    public AjaxResponse upDataUser(@RequestBody UserBean userBean){
+    public AjaxResponse upDataUser(@RequestBody Article userBean){
         if(userBean.getId()==null){
             return AjaxResponse.error();
         }
