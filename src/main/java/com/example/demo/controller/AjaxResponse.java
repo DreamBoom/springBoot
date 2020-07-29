@@ -37,11 +37,11 @@ public class AjaxResponse {
         ajaxResponse.message = "请求成功";
         return ajaxResponse;
     }
-    public static AjaxResponse error(){
+    public static AjaxResponse error(String msg){
         AjaxResponse ajaxResponse = new AjaxResponse();
         ajaxResponse.isSuccess = false;
         ajaxResponse.code=400;
-        ajaxResponse.message = "请求失败";
+        ajaxResponse.message =msg;
         return ajaxResponse;
     }
 }

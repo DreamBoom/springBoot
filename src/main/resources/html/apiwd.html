@@ -532,15 +532,16 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_paths">2. 路径</a>
 <ul class="sectlevel2">
-<li><a href="#_saveuserusingpost">2.1. saveUser</a></li>
-<li><a href="#_getuserusingget">2.2. getUser</a></li>
-<li><a href="#_updatauserusingput">2.3. upDataUser</a></li>
-<li><a href="#_deleteuserusingdelete">2.4. deleteUser</a></li>
+<li><a href="#_deletearticleusingdelete">2.1. deleteArticle</a></li>
+<li><a href="#_getarticleusingget">2.2. getArticle</a></li>
+<li><a href="#_getarticlesusingget">2.3. getArticles</a></li>
+<li><a href="#_savearticleusingpost">2.4. saveArticle</a></li>
+<li><a href="#_updataarticleusingput">2.5. upDataArticle</a></li>
 </ul>
 </li>
 <li><a href="#_definitions">3. 定义</a>
 <ul class="sectlevel2">
-<li><a href="#_6e3541884d20e95ad039b9b3c894cac0">3.1. 用户信息</a></li>
+<li><a href="#_article">3.1. Article</a></li>
 <li><a href="#_a589f2e472cc9e2be51b973b335789e4">3.2. 网络请求返回类</a></li>
 </ul>
 </li>
@@ -589,10 +590,10 @@ table.CodeRay td.code>pre{padding:0}
 <h2 id="_paths">2. 路径</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_saveuserusingpost">2.1. saveUser</h3>
+<h3 id="_deletearticleusingdelete">2.1. deleteArticle</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /rest/user</pre>
+<pre>DELETE /rest/deleteArticle</pre>
 </div>
 </div>
 <div class="sect3">
@@ -615,10 +616,10 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userBean</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
 <em>必填</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">userBean</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_6e3541884d20e95ad039b9b3c894cac0">用户信息</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -645,8 +646,8 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_a589f2e472cc9e2be51b973b335789e4">网络请求返回类</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>201</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Created</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>204</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
 </tr>
 <tr>
@@ -657,11 +658,6 @@ table.CodeRay td.code>pre{padding:0}
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>403</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Forbidden</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
 </tr>
 </tbody>
@@ -703,7 +699,7 @@ table.CodeRay td.code>pre{padding:0}
 <h5 id="_请求_path">请求 path</h5>
 <div class="listingblock">
 <div class="content">
-<pre>/rest/user</pre>
+<pre>/rest/deleteArticle</pre>
 </div>
 </div>
 </div>
@@ -711,11 +707,7 @@ table.CodeRay td.code>pre{padding:0}
 <h5 id="_请求_body">请求 body</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">age</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="json">{ }</code></pre>
 </div>
 </div>
 </div>
@@ -738,10 +730,10 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getuserusingget">2.2. getUser</h3>
+<h3 id="_getarticleusingget">2.2. getArticle</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /rest/user</pre>
+<pre>GET /rest/getArticle</pre>
 </div>
 </div>
 <div class="sect3">
@@ -763,7 +755,7 @@ table.CodeRay td.code>pre{padding:0}
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
 <em>必填</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">id</p></td>
@@ -847,17 +839,15 @@ table.CodeRay td.code>pre{padding:0}
 <h5 id="_请求_path_2">请求 path</h5>
 <div class="listingblock">
 <div class="content">
-<pre>/rest/user</pre>
+<pre>/rest/getArticle</pre>
 </div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_请求_query">请求 query</h5>
+<h5 id="_请求_body_2">请求 body</h5>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>
-}</code></pre>
+<pre class="CodeRay highlight"><code data-lang="json">{ }</code></pre>
 </div>
 </div>
 </div>
@@ -880,14 +870,118 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 <div class="sect2">
-<h3 id="_updatauserusingput">2.3. upDataUser</h3>
+<h3 id="_getarticlesusingget">2.3. getArticles</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /rest/user</pre>
+<pre>GET /rest/getArticles</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_参数_3">2.3.1. 参数</h4>
+<h4 id="_响应_3">2.3.1. 响应</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP代码</th>
+<th class="tableblock halign-left valign-middle">说明</th>
+<th class="tableblock halign-left valign-middle">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_a589f2e472cc9e2be51b973b335789e4">网络请求返回类</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>401</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unauthorized</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>403</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Forbidden</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_消耗_3">2.3.2. 消耗</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_生成_3">2.3.3. 生成</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>/</strong></code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_标签_4">2.3.4. 标签</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>hello-controller</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http请求示例_3">2.3.5. HTTP请求示例</h4>
+<div class="sect4">
+<h5 id="_请求_path_3">请求 path</h5>
+<div class="listingblock">
+<div class="content">
+<pre>/rest/getArticles</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http响应示例_3">2.3.6. HTTP响应示例</h4>
+<div class="sect4">
+<h5 id="_响应_200_3">响应 200</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">code</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">200、400、500</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">object</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_savearticleusingpost">2.4. saveArticle</h3>
+<div class="literalblock">
+<div class="content">
+<pre>POST /rest/saveArticle</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_参数_3">2.4.1. 参数</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -906,16 +1000,16 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userBean</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>article</strong><br>
 <em>必填</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">userBean</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_6e3541884d20e95ad039b9b3c894cac0">用户信息</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">article</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_article">Article</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_响应_3">2.3.2. 响应</h4>
+<h4 id="_响应_4">2.4.2. 响应</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -959,150 +1053,6 @@ table.CodeRay td.code>pre{padding:0}
 </table>
 </div>
 <div class="sect3">
-<h4 id="_消耗_3">2.3.3. 消耗</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_生成_3">2.3.4. 生成</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code><strong>/</strong></code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_标签_4">2.3.5. 标签</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>hello-controller</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_http请求示例_3">2.3.6. HTTP请求示例</h4>
-<div class="sect4">
-<h5 id="_请求_path_3">请求 path</h5>
-<div class="listingblock">
-<div class="content">
-<pre>/rest/user</pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_请求_body_2">请求 body</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">age</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_http响应示例_3">2.3.7. HTTP响应示例</h4>
-<div class="sect4">
-<h5 id="_响应_200_3">响应 200</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">code</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">200、400、500</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">object</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_deleteuserusingdelete">2.4. deleteUser</h3>
-<div class="literalblock">
-<div class="content">
-<pre>DELETE /rest/user/{id}</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_参数_4">2.4.1. 参数</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">类型</th>
-<th class="tableblock halign-left valign-middle">名称</th>
-<th class="tableblock halign-left valign-middle">说明</th>
-<th class="tableblock halign-left valign-middle">类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
-<em>必填</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">id</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_响应_4">2.4.2. 响应</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP代码</th>
-<th class="tableblock halign-left valign-middle">说明</th>
-<th class="tableblock halign-left valign-middle">类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_a589f2e472cc9e2be51b973b335789e4">网络请求返回类</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>204</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>401</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Unauthorized</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>403</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Forbidden</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
 <h4 id="_消耗_4">2.4.3. 消耗</h4>
 <div class="ulist">
 <ul>
@@ -1138,7 +1088,21 @@ table.CodeRay td.code>pre{padding:0}
 <h5 id="_请求_path_4">请求 path</h5>
 <div class="listingblock">
 <div class="content">
-<pre>/rest/user/0</pre>
+<pre>/rest/saveArticle</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_请求_body_3">请求 body</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">creattime</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1160,13 +1124,164 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_updataarticleusingput">2.5. upDataArticle</h3>
+<div class="literalblock">
+<div class="content">
+<pre>PUT /rest/upDataArticle</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_参数_4">2.5.1. 参数</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">类型</th>
+<th class="tableblock halign-left valign-middle">名称</th>
+<th class="tableblock halign-left valign-middle">说明</th>
+<th class="tableblock halign-left valign-middle">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Body</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>article</strong><br>
+<em>必填</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">article</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_article">Article</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_响应_5">2.5.2. 响应</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP代码</th>
+<th class="tableblock halign-left valign-middle">说明</th>
+<th class="tableblock halign-left valign-middle">类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_a589f2e472cc9e2be51b973b335789e4">网络请求返回类</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>201</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Created</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>401</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unauthorized</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>403</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Forbidden</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">无内容</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_消耗_5">2.5.3. 消耗</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_生成_5">2.5.4. 生成</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code><strong>/</strong></code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_标签_6">2.5.5. 标签</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>hello-controller</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http请求示例_5">2.5.6. HTTP请求示例</h4>
+<div class="sect4">
+<h5 id="_请求_path_5">请求 path</h5>
+<div class="listingblock">
+<div class="content">
+<pre>/rest/upDataArticle</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_请求_body_4">请求 body</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">content</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">creattime</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span> : <span class="integer">0</span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_http响应示例_5">2.5.7. HTTP响应示例</h4>
+<div class="sect4">
+<h5 id="_响应_200_5">响应 200</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">code</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">200、400、500</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">object</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">message</span><span class="delimiter">&quot;</span></span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">string</span><span class="delimiter">&quot;</span></span>,
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">success</span><span class="delimiter">&quot;</span></span> : <span class="value">true</span>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_definitions">3. 定义</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_6e3541884d20e95ad039b9b3c894cac0">3.1. 用户信息</h3>
+<h3 id="_article">3.1. Article</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1182,24 +1297,33 @@ table.CodeRay td.code>pre{padding:0}
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>age</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>author</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">用户年龄<br>
-<strong>样例</strong> : <code>0</code></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>content</strong><br>
+<em>可选</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>creattime</strong><br>
+<em>可选</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string (date-time)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>id</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">用户id<br>
-<strong>样例</strong> : <code>0</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>0</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>title</strong><br>
 <em>可选</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">用户姓名<br>
-<strong>样例</strong> : <code>"string"</code></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>样例</strong> : <code>"string"</code></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1256,7 +1380,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-18 11:44:29 CST
+Last updated 2020-07-28 08:22:05 CST
 </div>
 </div>
 </body>

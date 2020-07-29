@@ -17,7 +17,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("API文档")
                 .description("rest文档(简介)")
-                .termsOfServiceUrl("http://zinug.com")
+                .termsOfServiceUrl("http://www.dream.com")
                 .version("1.0")
                 .build();
     }

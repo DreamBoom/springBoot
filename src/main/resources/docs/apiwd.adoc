@@ -32,10 +32,10 @@ __基础路径__ : /
 [[_paths]]
 == 路径
 
-[[_saveuserusingpost]]
-=== saveUser
+[[_deletearticleusingdelete]]
+=== deleteArticle
 ....
-POST /rest/user
+DELETE /rest/deleteArticle
 ....
 
 
@@ -44,8 +44,8 @@ POST /rest/user
 [options="header", cols=".^2,.^3,.^9,.^4"]
 |===
 |类型|名称|说明|类型
-|**Body**|**userBean** +
-__必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
+|**Body**|**id** +
+__必填__|id|string
 |===
 
 
@@ -55,10 +55,9 @@ __必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
 |===
 |HTTP代码|说明|类型
 |**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
-|**201**|Created|无内容
+|**204**|No Content|无内容
 |**401**|Unauthorized|无内容
 |**403**|Forbidden|无内容
-|**404**|Not Found|无内容
 |===
 
 
@@ -81,18 +80,14 @@ __必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
 
 ===== 请求 path
 ----
-/rest/user
+/rest/deleteArticle
 ----
 
 
 ===== 请求 body
 [source,json]
 ----
-{
-  "age" : 0,
-  "id" : 0,
-  "name" : "string"
-}
+{ }
 ----
 
 
@@ -110,10 +105,10 @@ __必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
 ----
 
 
-[[_getuserusingget]]
-=== getUser
+[[_getarticleusingget]]
+=== getArticle
 ....
-GET /rest/user
+GET /rest/getArticle
 ....
 
 
@@ -122,7 +117,7 @@ GET /rest/user
 [options="header", cols=".^2,.^3,.^9,.^4"]
 |===
 |类型|名称|说明|类型
-|**Query**|**id** +
+|**Body**|**id** +
 __必填__|id|string
 |===
 
@@ -158,16 +153,14 @@ __必填__|id|string
 
 ===== 请求 path
 ----
-/rest/user
+/rest/getArticle
 ----
 
 
-===== 请求 query
+===== 请求 body
 [source,json]
 ----
-{
-  "id" : "string"
-}
+{ }
 ----
 
 
@@ -185,10 +178,66 @@ __必填__|id|string
 ----
 
 
-[[_updatauserusingput]]
-=== upDataUser
+[[_getarticlesusingget]]
+=== getArticles
 ....
-PUT /rest/user
+GET /rest/getArticles
+....
+
+
+==== 响应
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP代码|说明|类型
+|**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
+|**401**|Unauthorized|无内容
+|**403**|Forbidden|无内容
+|**404**|Not Found|无内容
+|===
+
+
+==== 消耗
+
+* `application/json`
+
+
+==== 生成
+
+* `*/*`
+
+
+==== 标签
+
+* hello-controller
+
+
+==== HTTP请求示例
+
+===== 请求 path
+----
+/rest/getArticles
+----
+
+
+==== HTTP响应示例
+
+===== 响应 200
+[source,json]
+----
+{
+  "code" : "200、400、500",
+  "data" : "object",
+  "message" : "string",
+  "success" : true
+}
+----
+
+
+[[_savearticleusingpost]]
+=== saveArticle
+....
+POST /rest/saveArticle
 ....
 
 
@@ -197,8 +246,8 @@ PUT /rest/user
 [options="header", cols=".^2,.^3,.^9,.^4"]
 |===
 |类型|名称|说明|类型
-|**Body**|**userBean** +
-__必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
+|**Body**|**article** +
+__必填__|article|<<_article,Article>>
 |===
 
 
@@ -234,7 +283,7 @@ __必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
 
 ===== 请求 path
 ----
-/rest/user
+/rest/saveArticle
 ----
 
 
@@ -242,9 +291,11 @@ __必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
 [source,json]
 ----
 {
-  "age" : 0,
+  "author" : "string",
+  "content" : "string",
+  "creattime" : "string",
   "id" : 0,
-  "name" : "string"
+  "title" : "string"
 }
 ----
 
@@ -263,10 +314,10 @@ __必填__|userBean|<<_6e3541884d20e95ad039b9b3c894cac0,用户信息>>
 ----
 
 
-[[_deleteuserusingdelete]]
-=== deleteUser
+[[_updataarticleusingput]]
+=== upDataArticle
 ....
-DELETE /rest/user/{id}
+PUT /rest/upDataArticle
 ....
 
 
@@ -275,8 +326,8 @@ DELETE /rest/user/{id}
 [options="header", cols=".^2,.^3,.^9,.^4"]
 |===
 |类型|名称|说明|类型
-|**Path**|**id** +
-__必填__|id|integer (int32)
+|**Body**|**article** +
+__必填__|article|<<_article,Article>>
 |===
 
 
@@ -286,9 +337,10 @@ __必填__|id|integer (int32)
 |===
 |HTTP代码|说明|类型
 |**200**|OK|<<_a589f2e472cc9e2be51b973b335789e4,网络请求返回类>>
-|**204**|No Content|无内容
+|**201**|Created|无内容
 |**401**|Unauthorized|无内容
 |**403**|Forbidden|无内容
+|**404**|Not Found|无内容
 |===
 
 
@@ -311,7 +363,20 @@ __必填__|id|integer (int32)
 
 ===== 请求 path
 ----
-/rest/user/0
+/rest/upDataArticle
+----
+
+
+===== 请求 body
+[source,json]
+----
+{
+  "author" : "string",
+  "content" : "string",
+  "creattime" : "string",
+  "id" : 0,
+  "title" : "string"
+}
 ----
 
 
@@ -334,21 +399,22 @@ __必填__|id|integer (int32)
 [[_definitions]]
 == 定义
 
-[[_6e3541884d20e95ad039b9b3c894cac0]]
-=== 用户信息
+[[_article]]
+=== Article
 
 [options="header", cols=".^3,.^11,.^4"]
 |===
 |名称|说明|类型
-|**age** +
-__可选__|用户年龄 +
-**样例** : `0`|integer (int32)
+|**author** +
+__可选__|**样例** : `"string"`|string
+|**content** +
+__可选__|**样例** : `"string"`|string
+|**creattime** +
+__可选__|**样例** : `"string"`|string (date-time)
 |**id** +
-__可选__|用户id +
-**样例** : `0`|integer (int32)
-|**name** +
-__可选__|用户姓名 +
-**样例** : `"string"`|string
+__可选__|**样例** : `0`|integer (int32)
+|**title** +
+__可选__|**样例** : `"string"`|string
 |===
 
 
